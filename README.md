@@ -1,2 +1,2 @@
-# Python-intro
-Introduction to Python 
+# Python Projects
+Syllabus Python Projects 
