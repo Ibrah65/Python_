@@ -13,19 +13,24 @@ returnDate = datetime.strptime(returnDate, "%d/%m/%Y")
 daysOverdue = (returnDate - dueDate).days
 
 # Determine fine rate using if-else statement
-if daysOverdue <= 7:
-    fineRate = 20
-elif 8 <= daysOverdue <= 14:
-    fineRate = 50
+if daysOverdue <= 0:
+    fineRate = 0
+    fineAmount = 0
+    daysOverdue = max(0, daysOverdue)  # Avoid negative overdue days for early returns
+    print("The book was returned on time or early. No fine.")
 else:
-    fineRate = 100
+    if daysOverdue <= 7:
+        fineRate = 20
+    elif 8 <= daysOverdue <= 14:
+        fineRate = 50
+    else:
+        fineRate = 100
+    fineAmount = daysOverdue * fineRate
 
-# Calculate fine amount
-fineAmount = daysOverdue * fineRate
 # Display results
-print("Book ID:", bookID)
+print("\nBook ID:", bookID)
 print("Due Date:", dueDate.strftime("%d/%m/%Y"))
 print("Return Date:", returnDate.strftime("%d/%m/%Y"))
 print("Days Overdue:", daysOverdue)
 print("Fine Rate:", fineRate)
-print("Fine Amount:", fineAmount)
+print("Fine Amount:", fineAmount)
