@@ -1,2 +1,2 @@
 # Python Projects
-Syllabus Python Projects 
+Syllabus Python Projects and Assignments. 
